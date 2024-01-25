@@ -15,7 +15,7 @@ const CourseInfo = {
         id: 1,
         name: "Declare a Variable",
         due_at: "2023-01-25",
-        points_possible: 50
+        points_possible: 0
       },
       {
         id: 2,
@@ -106,9 +106,12 @@ function getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions){
         console.log("input was invalid");
     }
     for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
-        if (AssignmentGroup.assignments[i].points_possible === 0){
+        try {if (AssignmentGroup.assignments[i].points_possible === 0) throw "error"}
+        catch(err) {
             console.log("error in data");
         }
+           
+        
     }
    
 //   let result = [
