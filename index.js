@@ -15,7 +15,7 @@ const CourseInfo = {
         id: 1,
         name: "Declare a Variable",
         due_at: "2023-01-25",
-        points_possible: 0
+        points_possible: 50
       },
       {
         id: 2,
@@ -104,9 +104,10 @@ function getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions){
     //If an AssignmentGroup does not belong to its course (mismatching course_id), your program should throw an error,
     if (CourseInfo.id !== AssignmentGroup.course_id){
         console.log("input was invalid");
+       
     }
     for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
-        try {if (AssignmentGroup.assignments[i].points_possible === 0) throw "error"}
+        try {if (AssignmentGroup.assignments[i].points_possible === 0) {console.log("error")}}
         catch(err) {
             console.log("error in data");
         }
@@ -119,13 +120,24 @@ function getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions){
         console.log("This assignment not due yet.");
  }  
   }
+
   // for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
   // if (LearnerSubmissions[i].submission.submitted_at>AssignmentGroup.assignments[i].due_at){
   //   LearnerSubmissions[i].submission.score-10%
   //     }
   // }
-      //   let result = [
-      //   ]
+        let result = [
+        {
+          "id":125,
+          "avg":(LearnerSubmissions[0].submission.score+LearnerSubmissions[1].submission.score)/(AssignmentGroup.assignments[0].points_possible+AssignmentGroup.assignments[1].points_possible)
+
+        },
+        {
+          "id":132,
+          "avg":(LearnerSubmissions[3].submission.score+LearnerSubmissions[4].submission.score)/(AssignmentGroup.assignments[0].points_possible+AssignmentGroup.assignments[1].points_possible)
+        }
+        ]
+        console.log(result);
 }
  getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions)
 
