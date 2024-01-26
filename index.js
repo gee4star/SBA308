@@ -113,9 +113,19 @@ function getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions){
            
         
     }
-   
-//   let result = [
-//   ]
+    for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
+       if (AssignmentGroup.assignments[i].due_at > "2024-1-25")
+ {     
+        console.log("This assignment not due yet.");
+ }  
+  }
+  // for (let i = 0; i < AssignmentGroup.assignments.length; i++) {
+  // if (LearnerSubmissions[i].submission.submitted_at>AssignmentGroup.assignments[i].due_at){
+  //   LearnerSubmissions[i].submission.score-10%
+  //     }
+  // }
+      //   let result = [
+      //   ]
 }
  getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions)
 
